@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Portal - Hana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cairo:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a012e; /* لون بنفسجي غامق */
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* واجهة دخول الباسورد */
+        #login-screen {
+            text-align: center;
+            transition: opacity 0.5s ease;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 12px;
+            width: 250px;
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 40px;
+            background-color: #9c27b0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(156, 39, 176, 0.5);
+        }
+
+        /* صفحة المحتوى */
+        #content-screen {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid #b388ff;
+            box-shadow: 0 0 25px rgba(156, 39, 176, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .message {
+            font-size: 1.3rem;
+            line-height: 2;
+            direction: rtl;
+            margin-bottom: 20px;
+            color: #f3e5f5;
+        }
+
+        .footer-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            margin-top: 10px;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <h2>💜 Enter Password 💜</h2>
+        <input type="password" id="passInput" placeholder="Password">
+        <br>
+        <button onclick="checkPass()">Enter</button>
+        <p id="error" style="color: #ff5252; margin-top: 10px; display: none; font-size: 0.9rem;">كلمة السر غير صحيحة</p>
+    </div>
+
+    <div id="content-screen">
+        <img src="WhatsApp Image 2026-01-21 at 12.58.18 PM.jpeg" alt="Hana" class="main-image">
+        
+        <div class="message">
+            ،عيونك نور يملأ قلبي<br>
+            ،فيها الأمان وفيها حبي<br>
+            ،عيناكِ بحر ولم أبلغ سواحله<br>
+            بل تهت فيه وضيعت اتجاهاتي.
+        </div>
+
+        <div class="footer-name">I love you, Hana ✨</div>
+    </div>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            // الباسورد هو Hana
+            if (pass === "Hana") {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('content-screen').style.display = 'block';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // للسماح بالدخول عند الضغط على زر Enter في الكيبورد
+        document.getElementById("passInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                checkPass();
+            }
+        });
+    </script>
+</body>
+</html>
